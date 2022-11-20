@@ -2,6 +2,7 @@ package com.webtecnology.app.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -47,5 +48,9 @@ public class UsuarioServiceImpl implements UsuarioService{
     public void deleteById(Long id) {
         usuarioRepository.deleteById(id);        
     }
-    
+
+    @Override
+    public Optional<Usuario> findOneByEmail(String email) {
+        return usuarioRepository.findOneByEmail(email);
+    }
 }

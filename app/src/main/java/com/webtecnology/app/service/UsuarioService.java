@@ -1,6 +1,7 @@
 package com.webtecnology.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,4 +18,6 @@ public interface UsuarioService {
 	void save (Usuario usuario);
 	
 	void deleteById(Long id);
+
+	Optional<Usuario> findOneByEmail(String email);
 }
