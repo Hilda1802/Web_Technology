@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 public class Usuario {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigo;
+	private Long id;
 	
 	@Column(name="email")
 	private String email;
