@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="container p-5">
+  <legend>Registo Usuario</legend>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-5">
+      <form [formGroup]="formularioRegistro" (ngSubmit)="enviarRegistroUsuario()">
+        <fieldset>
+          <div class="form-group">
+            <label for="Nombres" class="form-label mt-4">Nombres <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="Nombres" placeholder="Nombres" formControlName="nombres">
+            <div class="text-danger" *ngIf="campoNoValido('nombres')">El campo nombre es requerido</div>
+          </div>
+          <div class="form-group">
+            <label for="Apellidos" class="form-label mt-4">Apellidos <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="Apellidos" placeholder="Apellidos" formControlName="apellidos">
+            <div class="text-danger" *ngIf="campoNoValido('apellidos')">El campo apellido es requerido</div>
+          </div>
+          <div class="form-group">
+            <label for="Email" class="form-label mt-4">Email <span class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="Email" aria-describedby="emailHelp"
+              placeholder="example@mail.com" formControlName="email">
+              <div class="text-danger" *ngIf="campoNoValido('email')">El campo email es requerido</div>
+          </div>
+          <div class="form-group">
+            <label for="Telefono" class="form-label mt-4">Telefono</label>
+            <input type="text" class="form-control" id="Telefono" placeholder="Telefono" formControlName="telefono">
+          </div>
+          <div class="form-group">
+            <label for="Contraseña" class="form-label mt-4">Contraseña <span class="text-danger">*</span></label>
+            <input type="password" class="form-control" id="Contraseña" placeholder="Contraseña" formControlName="password">
+            <div class="text-danger" *ngIf="campoNoValido('password')">El campo contraseña es requerido</div>
+          </div>
+          <div class="form-group">
+            <label for="Contraseña2" class="form-label mt-4">Confirmar Contraseña <span class="text-danger">*</span></label>
+            <input type="password" class="form-control" id="Contraseña2" placeholder="Confirmar Contraseña" formControlName="repassword">
+            <div class="text-danger" *ngIf="campoNoValido('repassword')">El campo confirmar contraseña es requerido</div>
+            <div class="text-danger" *ngIf="!validacionPassword()">Las contraseñas no coinciden</div>
+          </div>
+          <div class="form-group d-grid gap-2 mt-3">
+            <button class="btn btn-outline-primary" type="submit">Crear Usuario</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

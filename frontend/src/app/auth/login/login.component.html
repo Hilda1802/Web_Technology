@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container p-5">
+    <legend>Iniciar Sesión</legend>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-5">
+        <form [formGroup]="formularioSesion" (ngSubmit)="iniciarSesion()">
+          <fieldset>
+            <div class="form-group">
+              <label for="Email" class="form-label mt-4">Email <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="Email" aria-describedby="emailHelp"
+                placeholder="example@mail.com" formControlName="email">
+                <div class="text-danger" *ngIf="campoNoValido('email')">El campo email es requerido</div>
+            </div>
+            <div class="form-group">
+              <label for="Contraseña" class="form-label mt-4">Contraseña <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" id="Contraseña" placeholder="Password" formControlName="password">
+              <div class="text-danger" *ngIf="campoNoValido('password')">El campo contraseña es requerido</div>
+            </div>
+            <div class="form-group d-grid gap-2 mt-3">
+              <button class="btn btn-outline-primary" type="submit">Acceder</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
