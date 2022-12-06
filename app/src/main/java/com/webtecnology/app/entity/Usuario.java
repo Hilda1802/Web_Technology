@@ -48,7 +48,7 @@ public class Usuario {
 	@Enumerated(value = EnumType.STRING)
 	private Estado estado;
 	
-	@OneToOne(cascade = CascadeType.MERGE)
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "rol", referencedColumnName = "codigo")
 	private Rol rol;
 	
