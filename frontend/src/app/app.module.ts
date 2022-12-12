@@ -16,6 +16,11 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './views/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BodyComponent } from './components/body/body.component';
+import { AgregarComponent } from './views/categorias/agregar/agregar.component';
+import { EditarComponent } from './views/categorias/editar/editar.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 
 @NgModule({
@@ -32,6 +37,10 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    BodyComponent,
+    AgregarComponent,
+    EditarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

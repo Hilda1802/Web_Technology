@@ -1,1 +1,37 @@
-<p>productos works!</p>
+<app-navbar></app-navbar>
+<div class="container">
+  <app-header titulo="Productos"></app-header>
+  <button (click)="redireccionarVistaAgregar()" type="button" class="btn btn-primary">Agregar</button>
+  <p></p>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr class="table-dark text-center">
+        <th scope="col">ACCIONES</th>
+        <th scope="col">CODIGO</th>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">PRECIO VENTA</th>
+        <th scope="col">STOCK</th>
+        <th scope="col">IMAGEN</th>
+        <th scope="col">PRECIO COMPRA</th>
+        <th scope="col">ESTADO</th>
+        <th scope="col">FECHA REGISTRO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-secondary text-center" [formGroup]="listaProductos" (ngSubmit)="listar()">
+        <th>
+          <button (click)="redireccionarVistaEditar()"style="margin: 2px" type="button" class="btn btn-outline-info">Editar</button>
+          
+        </th>
+        <th scope="row">*ngIf="listar('codigo')</th>
+        <td>*ngIf="listar('nombre')</td>
+        <td>*ngIf="listar('precioVenta')</td>
+        <td>*ngIf="listar('stock')</td>
+        <td>*ngIf="listar('imagen')</td>
+        <td>*ngIf="listar('marca')</td>
+        <td>*ngIf="listar('estado')</td>
+        <td>*ngIf="listar('fechaRegistro')</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

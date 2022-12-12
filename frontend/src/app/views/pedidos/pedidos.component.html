@@ -1,29 +1,24 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <table class="table table-hover">
+  <app-header titulo="Pedidos"></app-header>
+  <button (click)="redireccionarVistaAgregar()" type="button" class="btn btn-primary">Agregar</button>
+  <p></p>
+  <table class="table table-striped table-hover">
     <thead>
-      <tr>
-        <th scope="col">Type</th>
-        <th scope="col">Column heading</th>
-        <th scope="col">Column heading</th>
-        <th scope="col">Column heading</th>
+      <tr class="table-dark text-center">
+        <th scope="col">CODIGO</th>
+        <th scope="col">FECHA</th>
+        <th scope="col">TOTAL</th>
+        <th scope="col">USUARIO</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="table-active">
-        <th scope="row">Active</th>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
+      <tr class="table-secondary text-center" *ngFor="let pedido of pedidos">
+        <th scope="row">{{pedido.codigo}}</th>
+        <td>{{pedido.fecha}}</td>
+        <td>{{pedido.total}}</td>
+        <td>{{pedido.usuario}}</td>
       </tr>
-    
-      <tr class="table-primary">
-        <th scope="row">Primary</th>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-      </tr>
-  
     </tbody>
   </table>
 </div>

@@ -3,3 +3,8 @@
     flex: 1 1 auto;
   }
 
+  .imagen{
+    height: 300px;
+    width: 400px;
+    object-fit: contain;
+  }

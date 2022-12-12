@@ -1,6 +1,5 @@
 package com.webtecnology.app.entity;
 
-import java.math.BigDecimal;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -39,7 +38,4 @@ public class Carrito {
 	@Column(name="cantidad")
 	private Integer cantidad;
 	
-	public BigDecimal calcularSubtotal() {
-		return producto.getPrecioVenta().multiply(BigDecimal.valueOf(cantidad));
-	}
 }

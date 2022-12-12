@@ -69,7 +69,7 @@ export class RegisterComponent implements OnInit {
   }
 
   construirUsuario(data: any) {
-    const rol: Rol = new Rol("karen", Estado.ACTIVO, 1)
+    const rol: Rol = new Rol("", Estado.ACTIVO, 1)
     const detalle: DetalleUsuario = new DetalleUsuario(data.nombres, data.apellidos, data.telefono);
     return new Usuario(data.email, data.password, detalle, Estado.ACTIVO, rol);
   }
