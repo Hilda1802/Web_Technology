@@ -26,8 +26,8 @@ export class CategoriasComponent implements OnInit {
     this.router.navigateByUrl('/categorias/agregar')
   }
 
-  redireccionarVistaEditar() {
-    this.router.navigateByUrl('/categorias/editar/144')
+  redireccionarVistaEditar(id:any) {
+    this.router.navigateByUrl('/categorias/editar/'+id)
   }
 
   eliminarCategoria(id:any){

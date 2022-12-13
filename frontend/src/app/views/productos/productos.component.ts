@@ -9,20 +9,20 @@ import { ProductoService } from 'src/app/services/producto.service';
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
-export class ProductosComponent implements OnInit{ 
-
+export class ProductosComponent implements OnInit {
+  productos: Producto[] = [];
   listaProductos = this.fb.group({
-  codigo: ["", Validators.required],
-  nombre: ["", Validators.required],
-  precioVenta: ["", Validators.required],
-  stock: [""],
-  imagen: [""],
-  marca: ["", Validators.required],
-  estado: ["", Validators.required],
-  fechaRegistro: ["", Validators.required]
-}, { });
+    codigo: ["", Validators.required],
+    nombre: ["", Validators.required],
+    precioVenta: ["", Validators.required],
+    stock: [""],
+    imagen: [""],
+    marca: ["", Validators.required],
+    estado: ["", Validators.required],
+    fechaRegistro: ["", Validators.required]
+  }, {});
 
-  constructor(private fb:FormBuilder, private ProductoService: ProductoService, private router: Router) { }
+  constructor(private fb: FormBuilder, private ProductoService: ProductoService, private router: Router) { }
 
   ngOnInit(): void {
     this.listar();
@@ -30,23 +30,39 @@ export class ProductosComponent implements OnInit{
 
   listar() {
     this.ProductoService.listarProductos().subscribe((respuesta: any) => {
-      this.listaProductos = respuesta;
+      this.productos = respuesta.content;
+      console.log(this.productos);
     })
   }
+  registrarProducto() {
+    let producto: Producto = this.transformaProducto(this.listaProductos.value)
+    console.log(producto);
 
-  redireccionarVistaAgregar() {
-    this.router.navigateByUrl('/categorias/agregar')
-  }
+    this.ProductoService.guardarProducto(producto).subscribe(respuesta => {
+      if (respuesta) {
+        this.router.navigateByUrl('/productos')
+      }
+      })
+    }
 
-  redireccionarVistaEditar() {
-    this.router.navigateByUrl('/categorias/editar/144')
-  }
+      transformaProducto(data: any){
+        return new Producto(undefined, undefined, data.undefined, undefined, undefined, undefined, undefined, undefined);
+      }
 
-  eliminarProducto(id:any){
-    console.log(id);
-    this.ProductoService.eliminarProducto(id).subscribe(respuesta=>{
-      console.log(respuesta);
-      this.listar();
-    })
-  }
-}
+
+      eliminarProducto(codigo:any){
+        console.log(codigo);
+        this.ProductoService.eliminarProducto(codigo).subscribe(respuesta => {
+          console.log(respuesta);
+          this.listar();
+        })
+      }
+
+      redireccionarVistaAgregar() {
+        this.router.navigateByUrl('/productos/agregarProducto')
+      }
+
+      redireccionarVistaEditar() {
+        this.router.navigateByUrl('/productos/editar/144')
+      }
+    }

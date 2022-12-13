@@ -20,6 +20,7 @@ import { BodyComponent } from './components/body/body.component';
 import { AgregarComponent } from './views/categorias/agregar/agregar.component';
 import { EditarComponent } from './views/categorias/editar/editar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AgregarProductoComponent } from './views/productos/agregar-producto/agregar-producto.component';
 
 
 
@@ -41,6 +42,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AgregarComponent,
     EditarComponent,
     FooterComponent,
+    AgregarProductoComponent,
   ],
   imports: [
     BrowserModule,

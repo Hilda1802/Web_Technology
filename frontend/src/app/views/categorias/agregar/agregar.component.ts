@@ -38,9 +38,7 @@ export class AgregarComponent implements OnInit {
       if (respuesta) {
         this.router.navigateByUrl('/categorias')
       }
-      
     })
-    
   }
 
   transformaCategoria(data:any){

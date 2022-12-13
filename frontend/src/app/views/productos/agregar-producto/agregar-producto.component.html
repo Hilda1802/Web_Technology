@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div class="container p-5">
+    <app-header titulo="Agregar Producto"></app-header>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-5">
+            <form [formGroup]="listaProductos" (ngSubmit)="registrarProducto()">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="form-label mt-4">Codigo</label>
+                        <input type="text" class="form-control" formControlName="codigo">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4">Nombre</label>
+                        <input type="text" class="form-control" formControlName="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4">Precio Venta</label>
+                        <input type="text" class="form-control" formControlName="precioVenta">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4">Stock</label>
+                        <input type="text" class="form-control" formControlName="stock">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4">Imagen</label>
+                        <input type="text" class="form-control" formControlName="imagen">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4">Marca</label>
+                        <input type="text" class="form-control" formControlName="marca">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4">Estado</label>
+                        <input type="text" class="form-control" formControlName="estado">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label mt-4">Fecha Registro</label>
+                        <input type="text" class="form-control" formControlName="fechaRegistro">
+                    </div>
+                    <div class="form-group d-grid gap-2 mt-3">
+                        <button class="btn btn-outline-primary" type="submit">Agregar Producto</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

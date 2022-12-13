@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
     if (this.formularioRegistro.valid) {
       let nuevoUsuario: Usuario = this.construirUsuario(this.formularioRegistro.value)
       console.log("Nuevo Usuario", nuevoUsuario);
-      this.authService.registrarUsuario(nuevoUsuario).subscribe((respuesta) => {
+      this.authService.registrarUsuario(nuevoUsuario).subscribe((respuesta:any) => {
         console.log(respuesta);
         if (respuesta) {
           this.router.navigateByUrl('/iniciar-sesion')
